@@ -25,7 +25,7 @@ GOTO :COMMIT
 
 :COMMIT
 set /P userComments=Enter the comment for this commit: 
-git commit -m %userComments%
+git commit -m "%userComments%"
 GOTO :PUSH
 
 :PUSH

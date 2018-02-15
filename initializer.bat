@@ -24,7 +24,12 @@ git clone %myRepo%
 
 set/P repoName=Enter the name of the repository folder: 
 cd %repoName%
-goto :CONFIGGIT
+goto :CHECKBRANCH
+
+:CHECKBRANCH
+set /P branchName=Enter the name of your new branch: 
+git branch %branchName%
+git checkout %branchName%
 
 :CONFIGGIT
 git config user.name "%myUserName%"
