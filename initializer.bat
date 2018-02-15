@@ -3,7 +3,6 @@ cls
 
 set /P myUserName=Please enter your username: 
 set /P myEmail=Please enter your email: 
-
 REM echo Username: %myUserName%
 REM echo Email: %myEmail%
 

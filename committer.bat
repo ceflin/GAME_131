@@ -4,10 +4,25 @@ cls
 set /P userFiles=Enter the number of files you wish to add: 
 echo %userFiles%
 
-if %userFiles% GTR 0 GOTO :REPEAT
-
 :REPEAT
-set /P inputFile=Enter the name of the file you wish to add: 
-git add %inputFile%
-set userFiles -= 1
-echo %userFiles%
+if %userFiles% GTR 0 GOTO :ADDFILE
+
+GOTO :STATUS
+
+
+:ADDFILE
+set /P fileName=Enter the name of the file you wish to add: 
+echo %fileName%
+git add %fileName%
+set /a userFiles -= 1
+echo %userFiles% 
+goto :REPEAT
+
+
+:STATUS
+git status
+GOTO :COMMIT
+
+:COMMIT
+set /P userComments=Enter the comment for this commit: 
+git commit -m %userComments%
