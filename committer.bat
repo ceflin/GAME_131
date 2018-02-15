@@ -12,10 +12,10 @@ GOTO :STATUS
 
 :ADDFILE
 set /P fileName=Enter the name of the file you wish to add: 
-echo %fileName%
+echo Name of file to be commited: %fileName%
 git add %fileName%
 set /a userFiles -= 1
-echo %userFiles% 
+echo Number of files left: %userFiles% 
 goto :REPEAT
 
 
@@ -26,3 +26,7 @@ GOTO :COMMIT
 :COMMIT
 set /P userComments=Enter the comment for this commit: 
 git commit -m %userComments%
+GOTO :PUSH
+
+:PUSH
+git push origin master
