@@ -21,7 +21,15 @@ goto :REPEAT
 
 :STATUS
 git status
-GOTO :COMMIT
+set /P remove=Do you wish to remove any files (Y or N): 
+if "%remove%"=="Y" GOTO :REMOVEFILE
+if "%remove%"=="N" GOTO :COMMIT
+else echo I'm sorry I didn't understand your answer.
+GOTO :STATUS
+
+:REMOVEFILE
+set /P fileRemove=Enter the name of the file you wish to remove: 
+git remove %fileRemove%
 
 :COMMIT
 set /P userComments=Enter the comment for this commit: 
