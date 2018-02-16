@@ -29,7 +29,7 @@ GOTO :STATUS
 
 :REMOVEFILE
 set /P fileRemove=Enter the name of the file you wish to remove: 
-git remove %fileRemove%
+git rm %fileRemove%
 
 :COMMIT
 set /P userComments=Enter the comment for this commit: 
