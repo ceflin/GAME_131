@@ -36,21 +36,21 @@ public class SnapToGrid : MonoBehaviour {
                 new Vector3(columns * gridSize, y * gridSize, transform.position.z));
         }
 
-        SpriteRenderer[] sprites = GameObject.FindObjectOfType<SpriteRenderer>();
+        //SpriteRenderer[] sprites = GameObject.FindObjectOfType<SpriteRenderer>();
 
-        for (int i = 0; i < sprites.Length; i++)
-        {
-            SpriteRenderer currentSpriteRenderer = sprites[i];
-            Sprite currentSprite = currentSpriteRenderer.sprite;
+        //for (int i = 0; i < sprites.Length; i++)
+        //{
+        //    SpriteRenderer currentSpriteRenderer = sprites[i];
+        //    Sprite currentSprite = currentSpriteRenderer.sprite;
 
-            Vector3 spiteCenterWorld = currentSpriteRenderer.transform.position + currentSprite.bounds.center;
+        //    Vector3 spiteCenterWorld = currentSpriteRenderer.transform.position + currentSprite.bounds.center;
 
-            Vector3 spriteCenterGrid = new Vector3(
-                Mathf.FloorToInt(spiteCenterWorld.x / gridSize),
-                Mathf.FloorToInt(spiteCenterWorld.y / gridSize),
-                currentSpriteRenderer.transform.position.z);
+        //    Vector3 spriteCenterGrid = new Vector3(
+        //        Mathf.FloorToInt(spiteCenterWorld.x / gridSize),
+        //        Mathf.FloorToInt(spiteCenterWorld.y / gridSize),
+        //        currentSpriteRenderer.transform.position.z);
 
-            currentSpriteRenderer.transform.position = transform.position + spriteCenterGrid * gridSize;
-        }
+        //    currentSpriteRenderer.transform.position = transform.position + spriteCenterGrid * gridSize;
+        //}
     }
 }
