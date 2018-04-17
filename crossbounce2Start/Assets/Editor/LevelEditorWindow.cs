@@ -6,6 +6,8 @@ using System.Text;
 
 public class LevelEditorWindow : EditorWindow
 {
+    private float value = 0f;
+
     [MenuItem("Tools/Level Creator/Show Level Editor")]
     private static void ShowLevelEditor()
     {
@@ -85,5 +87,14 @@ public class LevelEditorWindow : EditorWindow
                 currentX += 1f;
             }
         }
+        float leftValue = 0f;
+        float rightValue = 100f;
+        value = EditorGUILayout.Slider("Bounciness", value, leftValue, rightValue);
+    }
+
+    private void OnInspectorUpdate()
+    {
+        if (Selection.activeTransform)
+            Selection.activeTransform.localScale = new Vector3(value, value, value);
     }
 }
