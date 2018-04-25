@@ -87,14 +87,6 @@ public class LevelEditorWindow : EditorWindow
                 currentX += 1f;
             }
         }
-        float leftValue = 0f;
-        float rightValue = 100f;
-        value = EditorGUILayout.Slider("Bounciness", value, leftValue, rightValue);
     }
 
-    private void OnInspectorUpdate()
-    {
-        if (Selection.activeTransform)
-            Selection.activeTransform.localScale = new Vector3(value, value, value);
-    }
 }
