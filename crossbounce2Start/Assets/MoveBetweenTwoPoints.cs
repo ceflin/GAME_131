@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class MoveBetweenTwoPoints : MonoBehaviour
 {
-
+    public GameObject start;
+    public GameObject end;
     public Vector3 startPosition;
     public Vector3 endPosition;
     public bool isMovingToStart = true;
     public float speed = 4.0f;
 
+    public bool isRunning = false;
+
     // Use this for initialization
     void Start()
     {
-
+        startPosition = start.transform.position;
+        endPosition = end.transform.position;
+        isRunning = true;
+        if (isRunning)
+        {
+            start.GetComponent<Renderer>().enabled = false;
+            end.GetComponent<Renderer>().enabled = false;
+        }
     }
 
     // Update is called once per frame
@@ -51,22 +61,12 @@ public class MoveBetweenTwoPoints : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawLine(transform.position, startPosition);
-        Gizmos.DrawLine(transform.position, endPosition);
-    }
-
-    private void OnGUI()
-    {
-        Vector3 mousePos = Event.current.mousePosition;
-
-        if (Event.current.shift)
+        if (!isRunning)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                startPosition = mousePos;
-            }
+            startPosition = start.transform.position;
+            endPosition = end.transform.position;
+            Gizmos.color = Color.blue;
+            Gizmos.DrawLine(startPosition, endPosition);
         }
-        
     }
 }
